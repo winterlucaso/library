@@ -1,4 +1,123 @@
-/* Border test */
-* {
-    border: 2px solid red;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+:root {
+    --color-1: #493548;
+    --color-2: #4B4E6D;
+    --color-3: #6A8D92;
+    --color-4: #80B192;
+    --color-5: #A1E887;
+    --color-6: #e5e5e5;
+    --color-7: white;
+    --color-border-test: red;
 }
+
+/* Border test */
+/* * {
+    border: 2px solid red;
+} */
+
+/* Body */
+body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 80px 100px 1fr;
+}
+
+/* Header */
+header {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: center;
+    background-color: lightskyblue;
+}
+
+header h1 {
+    padding: 5px;
+    margin: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Sidebar */
+aside {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    background-color: lightgreen;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+aside section {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Add Book */
+#container-add-book {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 208, 120);
+}
+
+#btn-add-book {
+    padding: 5px;
+}
+
+
+/* Main */
+main {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 300px));
+    background-color: lightcoral;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    padding: 5px;
+    margin: 10px;
+    border: 2px solid var(--color-border-test);
+    background-color: var(--color-7);
+
+}
+
+.book .book-title,
+.book .book-author,
+.book .book-page-count,
+.book div {
+    margin: 5px;
+}
+
+.book:last-child {
+    align-self: end;
+}
+
+/* .book .book-title {
+    font-weight: bold;
+}
+
+.book .book-author {
+    
+}
+
+.book .book-page-count {
+    
+} */
