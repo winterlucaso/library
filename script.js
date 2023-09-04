@@ -6,7 +6,7 @@
 // - fix page responsiveness
 
 const form = document.getElementById('form');
-const bookContainer = document.getElementById("container-books");
+const table = document.querySelector("table");
 
 const addBookBtn = document.getElementById("addBookBtn");
 const addBookDialog = document.getElementById("addBookDialog");
@@ -65,27 +65,29 @@ function addBookToLibrary(book) {
 
 // Create book card and add to DOM
 function addBookCard(book) {
-    const bookCard = document.createElement('article');
-    bookCard.classList.add("book");
-    bookContainer.appendChild(bookCard);
+    const bookRow = document.createElement('tr');
+    // bookRow.classList.add("book");
+    table.appendChild(bookRow);
 
-    const bookTitle = document.createElement('div');
-    bookTitle.classList.add("book-title");
+    const bookTitle = document.createElement('td');
+    // bookTitle.classList.add("book-title");
     bookTitle.innerText = book.title;
-    bookCard.append(bookTitle);
+    bookRow.append(bookTitle);
 
-    const bookAuthor = document.createElement('div');
-    bookAuthor.classList.add("book-author");
+    const bookAuthor = document.createElement('td');
+    // bookAuthor.classList.add("book-author");
     bookAuthor.innerText = book.author;
-    bookCard.append(bookAuthor);
+    bookRow.append(bookAuthor);
 
-    const bookPageCount = document.createElement('div');
-    bookPageCount.classList.add("book-page-count");
+    const bookPageCount = document.createElement('td');
+    // bookPageCount.classList.add("book-page-count");
     bookPageCount.innerText = book.pageCount;
-    bookCard.append(bookPageCount);
+    bookRow.append(bookPageCount);
 
-    const bookReadStatus = document.createElement('div');
-    bookReadStatus.classList.add("book-read-status");
+    const bookReadStatus = document.createElement('td');
+    // bookReadStatus.classList.add("book-read-status");
     bookReadStatus.innerText = book.isRead;
-    bookCard.append(bookReadStatus);
+    bookRow.append(bookReadStatus);
+
+
 }
