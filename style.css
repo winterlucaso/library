@@ -15,15 +15,15 @@
 }
 
 /* Border test */
-/* * {
+* {
     border: 2px solid red;
-} */
+}
 
 /* Body */
 body {
     display: grid;
     grid-template-columns: 200px 1fr;
-    grid-template-rows: 80px 100px 1fr;
+    grid-template-rows: auto auto 1fr;
 }
 
 /* Header */
@@ -65,7 +65,7 @@ aside section {
 }
 
 /* Add Book */
-#container-add-book {
+#section-add-book {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     display: flex;
@@ -74,8 +74,14 @@ aside section {
     background-color: rgb(255, 208, 120);
 }
 
-#btn-add-book {
+#addBookBtn {
     padding: 5px;
+    margin: 20px;
+}
+
+#addBookDialog form {
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -102,13 +108,13 @@ main {
 .book .book-title,
 .book .book-author,
 .book .book-page-count,
-.book div {
+.book .book-read-status {
     margin: 5px;
 }
 
-.book:last-child {
+/* .book:last-child {
     align-self: end;
-}
+} */
 
 /* .book .book-title {
     font-weight: bold;
