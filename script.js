@@ -1,9 +1,7 @@
 // To Do:
-// - fix form cancel button
 // - add switch for isRead on book cards
 // - link reader stats to individual book stats
 // - add a "remove" button to book cards
-// - fix page responsiveness
 
 const form = document.getElementById('form');
 const table = document.querySelector("table");
@@ -11,6 +9,7 @@ const table = document.querySelector("table");
 const addBookBtn = document.getElementById("addBookBtn");
 const addBookDialog = document.getElementById("addBookDialog");
 const confirmBtn = addBookDialog.querySelector("#confirmBtn");
+const cancelBtn = addBookDialog.querySelector("#cancelBtn");
 
 const myLibrary = [];
 
@@ -30,8 +29,7 @@ addBookBtn.addEventListener("click", () => {
     addBookDialog.showModal();
 });
 
-// Form Submit
-form.addEventListener('submit', (e) => {
+confirmBtn.addEventListener('click', (e) => {
     console.log("submit recognized");
 
     // Receive form inputs
@@ -55,7 +53,12 @@ form.addEventListener('submit', (e) => {
     addBookDialog.close(); // Close modal
 
     e.preventDefault(); // We don't want to submit this fake form
-})
+});
+
+cancelBtn.addEventListener('click', (e) => {
+    addBookDialog.close();
+    // e.preventDefault();
+});
 
 // Add book to myLibrary array
 function addBookToLibrary(book) {

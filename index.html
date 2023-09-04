@@ -39,9 +39,9 @@
         <label for="book_pages">Pages: </label>
         <input type="text" id="book_pages" name="book_pages">
         <label for="book_read_status">Read Status: </label>
-        <input type="text" id="book_read_status" name="book_read_status">
-        <div>
-          <button value="cancel" formmethod="dialog">Cancel</button>
+        <input type="checkbox" id="book_read_status" name="book_read_status">
+        <div id="cancel-and-submit-btns">
+          <button value="cancel" formmethod="dialog" id="cancelBtn">Cancel</button>
           <button type="submit" form="form" id="confirmBtn">Confirm</button>
           <!-- value="default" -->
         </div>
@@ -72,13 +72,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- <article class="book">
-      <div class="book-title">Hunger Games</div>
-      <div class="book-author">Suzanne Collins</div>
-      <div class="book-page-count">300</div>
-      <div class="book-read-status">Insert "Read" Switch Here</div>
-      <button class="remove-btn">X</button>
-    </article> -->
   </main>
   <footer>
     <h1>Footer</h1>
