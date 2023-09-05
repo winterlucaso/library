@@ -16,7 +16,7 @@
     <section>
       <div class="stat-container">
         <div>Total Books: </div>
-        <div>X</div>
+        <div id="total-books"></div>
       </div>
       <div class="stat-container">
         <div>Books Read: </div>
@@ -43,13 +43,12 @@
         <div id="cancel-and-submit-btns">
           <button value="cancel" formmethod="dialog" id="cancelBtn">Cancel</button>
           <button type="submit" form="form" id="confirmBtn">Confirm</button>
-          <!-- value="default" -->
         </div>
       </form>
     </dialog> 
   </section>
   <main class="table-wrapper">
-    <table id="container-books">
+    <table>
       <!-- <caption>This is a table containing all books in the library</caption> -->
       <thead>
         <trow>
@@ -60,8 +59,8 @@
           <th scope="col">Remove</th>
         </trow>
       </thead>
-      <tbody>
-        <tr>
+      <tbody id="container-books">
+        <!-- <tr>
           <td data-cell="title">The Hobbit</td>
           <td data-cell="author">J. R. R. Tolkein</td>
           <td data-cell="pages">310</td>
@@ -69,7 +68,7 @@
           <td data-cell="remove">
             <button class="remove-btn">X</button>
           </td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
   </main>
