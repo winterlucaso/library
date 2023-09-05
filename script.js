@@ -104,14 +104,19 @@ function addBookToDOM(book) {
     const bookRemoveCell = document.createElement('td'); // RemoveBtn
     const bookRemoveBtn = document.createElement('button');
     bookRemoveBtn.classList.add("remove-btn");
-    bookRemoveBtn.innerText = "X";
     bookRemoveBtn.dataset.bookNum = book.id; // Attaches data value to the removeBtn
+    const trashIcon = document.createElement('img');
+    trashIcon.setAttribute('src', './icon/trash-can-icon.svg');
+    trashIcon.setAttribute('alt', 'trash can icon');
+    trashIcon.classList.add("trash-icon");
+
     bookRemoveBtn.addEventListener('click', (e) => {
         console.log("Removing '" + book.title + "' at index: " + bookRemoveBtn.dataset.bookNum);
         removeBookFromLibrary(bookRemoveBtn.dataset.bookNum);
     });
     bookRow.append(bookRemoveCell);
     bookRemoveCell.append(bookRemoveBtn);
+    bookRemoveBtn.append(trashIcon);
 }
 
 function clearFormInputs() {

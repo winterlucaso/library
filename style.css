@@ -78,7 +78,7 @@ body {
 
 /* Header */
 header {
-    grid-column: 1 / 3;
+    grid-column: 1 / -1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +95,7 @@ header h1 {
 /* Sidebar */
 aside {
     grid-column: 1 / 2;
-    grid-row: 2 / 4;
+    grid-row: 2 / -2;
     background-color: lightgreen;
     display: grid;
     justify-content: center;
@@ -121,10 +121,10 @@ aside section {
 
 /* Add Book Section */
 #add-book-section {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-column: 2 / -1;
+    grid-row: 2 / -3;
     display: flex;
-    justify-content: end;
+    justify-content: start;
     background-color: rgb(255, 200, 99);  
 }
 
@@ -133,15 +133,26 @@ aside section {
     margin: 20px;
 }
 
-#addBookDialog form {
-    display: flex;
-    flex-direction: column;
+form {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#cancel-and-submit-btns {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#cancel-and-submit-btns > * {
+    padding: 5px;
+    margin: 5px;
 }
 
 /* Main */
 main {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
+    grid-column: 2 / -1;
+    grid-row: 3 / -2;
     background-color: lightcoral;
 }
 
@@ -178,18 +189,26 @@ tr:nth-of-type(2n) {
 }
 
 .remove-btn {
-    background-color: red;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 0, 0);
     color: white;
-    height: 25px;
-    width: 25px;
+    height: 28px;
+    width: 28px;
     border-radius: 5px;
+}
+
+.trash-icon {
+    height: 20px;
+    width: 20px;
 }
 
 
 /* Footer */
 footer {
-    grid-column: 1 / 3;
-    grid-row: 4 / 5;
+    grid-column: 1 / -1;
+    grid-row: 4 / -1;
     display: flex;
     justify-content: center;
     align-items: center;
