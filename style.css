@@ -199,6 +199,11 @@ tr:nth-of-type(2n) {
     border-radius: 5px;
 }
 
+.read-status-icon {
+    height: 23px;
+    width: 23px;
+}
+
 .trash-icon {
     height: 20px;
     width: 20px;

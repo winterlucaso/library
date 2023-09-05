@@ -98,8 +98,20 @@ function addBookToDOM(book) {
     bookRow.append(bookPageCount);
 
     const bookReadStatus = document.createElement('td'); // Read status
-    bookReadStatus.innerText = book.isRead;
+    const readStatusIcon = document.createElement('img');
+    if (book.isRead) {
+        readStatusIcon.setAttribute('src', './icon/check-icon.svg');
+        readStatusIcon.setAttribute('alt', 'check icon');
+        readStatusIcon.classList.add("read-status-icon");
+    }
+    else {
+        readStatusIcon.setAttribute('src', './icon/x-icon.svg');
+        readStatusIcon.setAttribute('alt', 'x icon');
+        readStatusIcon.classList.add("read-status-icon");
+    }
+    // bookReadStatus.innerText = book.isRead;
     bookRow.append(bookReadStatus);
+    bookReadStatus.append(readStatusIcon);
 
     const bookRemoveCell = document.createElement('td'); // RemoveBtn
     const bookRemoveBtn = document.createElement('button');
