@@ -47,15 +47,16 @@ table {
 	border-spacing: 0;
 }
 
+/* https://coolors.co/000000-7f95d1-815b8e-82204a-ffc0be-ffebe7 */
+
 :root {
-    --color-1: #493548;
-    --color-2: #4B4E6D;
-    --color-3: #6A8D92;
-    --color-4: #80B192;
-    --color-5: #A1E887;
-    --color-6: #e5e5e5;
-    --color-7: white;
-    --color-border-test: red;
+    --color-main: #7F95D1;
+    --color-secondary: #815B8E;
+    --color-tertiary: #FFC0BE;
+    --color-4: #FFEBE7;
+    --color-5: #000000;
+    --color-6: #82204A;
+    --color-light: #e5e5e5;
 }
 
 /* Border test */
@@ -82,7 +83,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightskyblue;
+    background-color: var(--color-main);
 }
 
 header h1 {
@@ -95,37 +96,22 @@ header h1 {
 /* Sidebar */
 aside {
     grid-column: 1 / 2;
-    grid-row: 2 / -2;
-    background-color: lightgreen;
+    grid-row: 2 / -1;
+    background-color: var(--color-4);
     display: grid;
+    grid-template-rows: auto 1fr;
     justify-content: center;
     align-items: start;
     width: 200px;
 }
 
-aside section {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 5px;
-    justify-content: center;
-    align-items: center;
-    padding-top: 50px;
-}
-
-.stat-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    column-gap: 10px;
-}
-
-/* Add Book Section */
+/* Add Book */
 #add-book-section {
-    grid-column: 2 / -1;
-    grid-row: 2 / -3;
+    grid-row: 1 / 2;
     display: flex;
-    justify-content: start;
-    background-color: rgb(255, 200, 99);  
+    /* justify-content: start; */
+    background-color: var(--color-tertiary);
+    margin-top: 20px;
 }
 
 #addBookBtn {
@@ -136,6 +122,9 @@ aside section {
 form {
     display: grid;
     grid-template-columns: auto auto;
+    column-gap: 10px;
+    row-gap: 20px;
+    align-items: center;
 }
 
 #cancel-and-submit-btns {
@@ -149,11 +138,28 @@ form {
     margin: 5px;
 }
 
+/* Stats */
+aside #stats-section {
+    grid-row: 2 / 3;
+    display: grid;
+    row-gap: 5px;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 20px;
+}
+
+.stat-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+
 /* Main */
 main {
     grid-column: 2 / -1;
     grid-row: 3 / -2;
-    background-color: lightcoral;
+    background-color: var(--color-6);
 }
 
 /* Table */
@@ -163,16 +169,18 @@ main {
 
 table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
+    border-left: 4px ridge var(--color-tertiary);
+    border-radius: 5px;
     background: #e4e4e4;
     color: black;
 }
 
 /* Table Components */
-caption,
 th,
 td {
-    padding: 1rem;
+    padding: 20px;
 }
 
 caption,
@@ -182,6 +190,17 @@ th {
 
 th {
     background: hsla(0, 0%, 64%, 0.5);
+    font-weight: bold;
+}
+
+td {
+    overflow-wrap: break-word;
+    /* word-break: break-all; */
+    /* white-space: nowrap; */
+    /* overflow: ellipse; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+
 }
 
 tr:nth-of-type(2n) {
@@ -192,7 +211,7 @@ tr:nth-of-type(2n) {
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(255, 48, 48);
     color: white;
     height: 28px;
     width: 28px;
@@ -202,11 +221,13 @@ tr:nth-of-type(2n) {
 .read-status-icon {
     height: 23px;
     width: 23px;
+    opacity: 0.8;
 }
 
 .trash-icon {
     height: 20px;
     width: 20px;
+    opacity: 0.8;
 }
 
 

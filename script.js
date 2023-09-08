@@ -1,6 +1,7 @@
 // To Do:
-// - add general functionality for isRead
 // - link reader stats to individual book stats
+// - improve UI of form
+// - fix form submitting with empty inputs
 
 const myLibrary = [];
 
@@ -147,9 +148,16 @@ function updateStats() { // Updates sidebar stats
 
 // Script
 // Starter Book
-let starterBook = new Book("The Hobbit", "J. R. R. Tolkein", 310, "Read");
+let starterBook = new Book("The Hobbit", "J. R. R. Tolkien", 310, "Read");
 
 addBookToLibrary(starterBook); // add to myLibrary array
+clearLibraryDOM(); // clear DOM
+addLibraryToDOM(); // reload DOM from myLibrary array
+updateStats(); // update stats
+
+let starterBook2 = new Book("The Hollywood Standard: The Complete and Authoritative Guide to Script Format and Style (Hollywood Standard: The Complete & Authoritative Guide to)", "Christopher Riley", 208, "Read");
+
+addBookToLibrary(starterBook2); // add to myLibrary array
 clearLibraryDOM(); // clear DOM
 addLibraryToDOM(); // reload DOM from myLibrary array
 updateStats(); // update stats
