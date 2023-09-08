@@ -8,7 +8,7 @@ const myLibrary = [];
 const table = document.querySelector("table");
 const booksContainer = document.querySelector("#container-books");
 
-// -- Book Constructor --
+// ----- Book Constructor -----
 class Book {
     constructor (title, author, pageCount, isRead, id) {
         this.title = title;
@@ -20,18 +20,16 @@ class Book {
 }
 
 // ----- Form Stuff -----
-// addBook, confirm, and cancel
+// addBook and form inputs
 const addBookBtn = document.getElementById("addBookBtn");
 const addBookDialog = document.getElementById("addBookDialog");
-const confirmBtn = addBookDialog.querySelector("#confirmBtn");
-const cancelBtn = addBookDialog.querySelector("#cancelBtn");
-
-// Receive form inputs
 const form = document.getElementById('form');
 const bookTitle = document.getElementById("book_title");
 const bookAuthor = document.getElementById("book_author");
 const bookPages = document.getElementById("book_pages");
 const bookReadStatus = document.getElementById("book_read_status");
+const confirmBtn = addBookDialog.querySelector("#confirmBtn");
+const cancelBtn = addBookDialog.querySelector("#cancelBtn");
 
 addBookBtn.addEventListener("click", () => { // addBookBtn EventListener
     addBookDialog.showModal();
@@ -146,16 +144,16 @@ function updateStats() { // Updates sidebar stats
     totalBooks.innerText = myLibrary.length;
 }
 
-// Script
-// Starter Book
-let starterBook = new Book("The Hobbit", "J. R. R. Tolkien", 310, "Read");
+// ----- Script -----
+// Starter Books
+let starterBook = new Book("The Hobbit", "J. R. R. Tolkien", 310, true);
 
 addBookToLibrary(starterBook); // add to myLibrary array
 clearLibraryDOM(); // clear DOM
 addLibraryToDOM(); // reload DOM from myLibrary array
 updateStats(); // update stats
 
-let starterBook2 = new Book("The Hollywood Standard: The Complete and Authoritative Guide to Script Format and Style (Hollywood Standard: The Complete & Authoritative Guide to)", "Christopher Riley", 208, "Read");
+let starterBook2 = new Book("The Hollywood Standard: The Complete and Authoritative Guide to Script Format and Style (Hollywood Standard: The Complete & Authoritative Guide to)", "Christopher Riley", 208, true);
 
 addBookToLibrary(starterBook2); // add to myLibrary array
 clearLibraryDOM(); // clear DOM
