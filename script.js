@@ -31,29 +31,67 @@ const bookReadStatus = document.getElementById("book_read_status");
 const confirmBtn = addBookDialog.querySelector("#confirmBtn");
 const cancelBtn = addBookDialog.querySelector("#cancelBtn");
 
+const bookTitleError = document.getElementById("book_title_error");
+const bookAuthorError = document.getElementById("book_author_error");
+const bookPagesError = document.getElementById("book_pages_error");
+
 addBookBtn.addEventListener("click", () => { // addBookBtn EventListener
     addBookDialog.showModal();
 });
 
-confirmBtn.addEventListener('click', (e) => { // confirmBtn EventListener
-    let book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookReadStatus.checked); // Create book instance
+form.addEventListener('submit', (e) => { // form submit EventListener
+    if (!validateInputs()) {
+        e.preventDefault();
+    }
+    else {
+        let book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookReadStatus.checked); // Create book instance
 
-    addBookToLibrary(book);
-    clearLibraryDOM();
-    addLibraryToDOM();
-    clearFormInputs();
+        addBookToLibrary(book);
+        clearLibraryDOM();
+        addLibraryToDOM();
+        clearFormInputs();
 
-    addBookDialog.close(); // Close modal
-    e.preventDefault(); // We don't want to submit this fake form
+        addBookDialog.close(); // Close modal
+    };
 });
 
-cancelBtn.addEventListener('click', (e) => { // Cancel Button
+cancelBtn.addEventListener('click', (e) => { // cancelBtn EventListener
     clearFormInputs();
     addBookDialog.close();
-    // e.preventDefault();
 });
 
 // ----- FUNCTIONS -----
+function validateInputs() { // Return false if there are errors
+    let errorState = false;
+    if (bookTitle.value === "") {
+        bookTitleError.innerText = "Please enter the title";
+        errorState = true;
+    } else {
+        bookTitleError.innerText = "";
+    }
+
+    if (bookAuthor.value === "") {
+        bookAuthorError.innerText = "Please enter the name of the author";
+        errorState = true;
+    } else {
+        bookAuthorError.innerText = "";
+    }
+
+    if (bookPages.value === "") {
+        bookPagesError.innerText = "Please enter a valid number";
+        errorState = true;
+    } else {
+        bookPagesError.innerText = "";
+    }
+
+    if (errorState) {
+        console.log("Validating: false");
+        return false;
+    }
+    console.log("Validating: true");
+    return true;
+}
+
 function addBookToLibrary(book) {
     myLibrary.push(book);
     console.log("Adding '" + book.title + "' at index: " + (myLibrary.length - 1))
@@ -135,6 +173,10 @@ function clearFormInputs() {
     bookAuthor.value = "";
     bookPages.value = "";
     bookReadStatus.checked = "";
+
+    bookTitleError.innerText = "";
+    bookAuthorError.innerText = "";
+    bookPagesError.innerText = "";
 }
 
 // ----- Stats -----

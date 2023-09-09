@@ -16,17 +16,23 @@
     <section id="add-book-section">
       <button id="addBookBtn">Add Book</button>
       <dialog id="addBookDialog">
-        <form id="form" action="/" method="GET">
+        <form id="form" action="#" method="GET">
           <label for="book_title">Title: </label>
-          <input type="text" id="book_title" name="book_title" required>
+          <input type="text" id="book_title" name="book_title">
+          <div id="book_title_error" class="error-message"></div>
+
           <label for="book_author">Author: </label>
-          <input type="text" id="book_author" name="book_author" required>
+          <input type="text" id="book_author" name="book_author">
+          <div id="book_author_error" class="error-message"></div>
+
           <label for="book_pages">Pages: </label>
-          <input type="number" id="book_pages" name="book_pages" min="0" required>
+          <input type="number" id="book_pages" name="book_pages" min="0">
+          <div id="book_pages_error" class="error-message"></div>
+
           <label for="book_read_status">Read Status: </label>
           <input type="checkbox" id="book_read_status" name="book_read_status">
           <div id="cancel-and-submit-btns">
-            <button value="cancel" formmethod="dialog" id="cancelBtn">Cancel</button>
+            <button type="button" value="cancel" formmethod="dialog" id="cancelBtn">Cancel</button>
             <button type="submit" form="form" id="confirmBtn">Confirm</button>
           </div>
         </form>
