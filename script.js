@@ -1,7 +1,5 @@
 // To Do:
-// - link reader stats to individual book stats
 // - improve UI of form
-// - fix form submitting with empty inputs
 
 const myLibrary = [];
 
@@ -50,6 +48,7 @@ form.addEventListener('submit', (e) => { // form submit EventListener
         clearLibraryDOM();
         addLibraryToDOM();
         clearFormInputs();
+        updateStats();
 
         addBookDialog.close(); // Close modal
     };
@@ -64,21 +63,21 @@ cancelBtn.addEventListener('click', (e) => { // cancelBtn EventListener
 function validateInputs() { // Return false if there are errors
     let errorState = false;
     if (bookTitle.value === "") {
-        bookTitleError.innerText = "Please enter the title";
+        bookTitleError.innerText = "*Please enter the title";
         errorState = true;
     } else {
         bookTitleError.innerText = "";
     }
 
     if (bookAuthor.value === "") {
-        bookAuthorError.innerText = "Please enter the name of the author";
+        bookAuthorError.innerText = "*Please enter the name of the author";
         errorState = true;
     } else {
         bookAuthorError.innerText = "";
     }
 
     if (bookPages.value === "") {
-        bookPagesError.innerText = "Please enter a valid number";
+        bookPagesError.innerText = "*Please enter a valid number";
         errorState = true;
     } else {
         bookPagesError.innerText = "";
@@ -181,23 +180,36 @@ function clearFormInputs() {
 
 // ----- Stats -----
 const totalBooks = document.querySelector("#total-books"); // Tracks total books in library
+const totalBooksRead = document.querySelector("#total-books-read"); // Tracks total books readin library
+
 
 function updateStats() { // Updates sidebar stats
     totalBooks.innerText = myLibrary.length;
+    console.log("totalBooks: " + myLibrary.length)
+
+    let count = 0;
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].isRead) {
+            count++;
+        }
+    }
+    console.log("count: " + count);
+    totalBooksRead.innerText = count;
+
 }
 
 // ----- Script -----
 // Starter Books
 let starterBook = new Book("The Hobbit", "J. R. R. Tolkien", 310, true);
 
-addBookToLibrary(starterBook); // add to myLibrary array
-clearLibraryDOM(); // clear DOM
-addLibraryToDOM(); // reload DOM from myLibrary array
-updateStats(); // update stats
+addBookToLibrary(starterBook);
+clearLibraryDOM();
+addLibraryToDOM();
+updateStats();
 
 let starterBook2 = new Book("The Hollywood Standard: The Complete and Authoritative Guide to Script Format and Style (Hollywood Standard: The Complete & Authoritative Guide to)", "Christopher Riley", 208, true);
 
-addBookToLibrary(starterBook2); // add to myLibrary array
-clearLibraryDOM(); // clear DOM
-addLibraryToDOM(); // reload DOM from myLibrary array
-updateStats(); // update stats
+addBookToLibrary(starterBook2);
+clearLibraryDOM();
+addLibraryToDOM();
+updateStats();
